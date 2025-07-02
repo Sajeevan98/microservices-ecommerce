@@ -1,11 +1,13 @@
 package com.project.sajee.product.controller;
 
 import com.project.sajee.product.dto.ProductRequest;
-import com.project.sajee.product.model.Product;
+import com.project.sajee.product.dto.ProductResponse;
 import com.project.sajee.product.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,7 +18,13 @@ public class ProductController {
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public Product addProduct(@RequestBody ProductRequest products){
-        return productService.createProducts(products);
+    public ProductResponse addProduct(@RequestBody ProductRequest products){
+        return productService.createProduct(products);
+    }
+
+    @GetMapping("/all")
+    @ResponseStatus(HttpStatus.FOUND)
+    public List<ProductResponse> findAllProducts(){
+        return productService.getAllProducts();
     }
 }
