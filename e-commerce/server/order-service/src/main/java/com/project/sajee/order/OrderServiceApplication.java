@@ -1,4 +1,4 @@
-package com.project.sajee.order_service;
+package com.project.sajee.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

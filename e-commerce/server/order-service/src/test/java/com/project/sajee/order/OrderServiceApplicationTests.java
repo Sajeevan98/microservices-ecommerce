@@ -1,4 +1,4 @@
-package com.project.sajee.order_service;
+package com.project.sajee.order;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
