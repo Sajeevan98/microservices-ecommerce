@@ -10,9 +10,9 @@ import org.testcontainers.utility.DockerImageName;
 class TestcontainersConfiguration {
 
 	@Bean
-	@ServiceConnection
+	@ServiceConnection // automatically maps the container's URI to spring.data.mongodb.uri
 	MongoDBContainer mongoDbContainer() {
-		return new MongoDBContainer(DockerImageName.parse("mongo:latest"));
+		return new MongoDBContainer(DockerImageName.parse("mongo:8.0.10"));
 	}
 
 }
