@@ -24,7 +24,7 @@ public class OrderServiceImp implements OrderService {
             Order orderObj = new Order();
             orderObj.setOrderNumber(UUID.randomUUID().toString());
             orderObj.setCode(order.code());
-            orderObj.setTotalPrice(order.totalPrice());
+            orderObj.setPrice(order.price());
             orderObj.setQuantity(order.quantity());
 
             // save Order into OrderRepository
