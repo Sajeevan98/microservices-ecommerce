@@ -2,16 +2,13 @@ services:
   mysql:
     image: mysql:8.0
     container_name: mysql-db
-    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DATABASE_NAME}
-      MYSQL_USER: ${USERNAME}
-      MYSQL_PASSWORD: ${PASSWORD}
     ports:
       - "3307:3306"
     volumes:
-      - mysql-data:/var/lib/mysql
+      - mysql:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -24,7 +21,7 @@ services:
       PMA_USER: root
       PMA_PASSWORD: ${ROOT_PASSWORD}
     ports:
-      - "8083:80"
+      - "9998:80"
 
 volumes:
-  mysql-data:
+  mysql:
