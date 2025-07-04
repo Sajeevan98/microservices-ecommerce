@@ -13,6 +13,7 @@ public class InventoryServiceImp implements InventoryService {
 
     @Override
     public boolean isStock(String code, Integer quantity) {
-        return false;
+        return inventoryRepository.existsByCodeAndQuantityIsGreaterThanEquals(code, quantity);
     }
+
 }
