@@ -1,7 +1,7 @@
 services:
   mongodb:
     image: mongo:8.0.10
-    container_name: mongodb
+    container_name: mongo-product-service
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_DB_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_DB_PASSWORD}
@@ -13,7 +13,7 @@ services:
 
   mongo-express:
     image: mongo-express:1.0.0
-    container_name: mongo_express
+    container_name: mongo-admin-product
     ports:
       - "9091:8081"
     depends_on:

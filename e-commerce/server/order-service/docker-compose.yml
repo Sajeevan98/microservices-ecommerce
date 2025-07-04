@@ -1,7 +1,7 @@
 services:
   mysql:
     image: mysql:8.0
-    container_name: mysql-db
+    container_name: mysql-order-service
     environment:
       MYSQL_ROOT_PASSWORD: ${ROOT_PASSWORD}
     ports:
@@ -12,7 +12,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: mysql-admin
+    container_name: mysql-admin-order
     restart: unless-stopped
     depends_on:
       - mysql
