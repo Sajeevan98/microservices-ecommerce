@@ -50,5 +50,5 @@ class OrderServiceApplicationTests {
                 .body("order.quantity", Matchers.equalTo(5));
 
     }
-    
+
 }
