@@ -1,11 +1,13 @@
 package com.project.sajee.order;
 
+import com.project.sajee.order.stub.InventoryClientStup;
 import io.restassured.RestAssured;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
 import org.springframework.context.annotation.Import;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,6 +15,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @Import(TestcontainersConfiguration.class)
 //this tells Spring Boot to start the embedded web server on a random port to avoid port conflicts during tests
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@AutoConfigureWireMock(port = 0) // set random port
 class OrderServiceApplicationTests {
 
     @LocalServerPort
@@ -33,6 +36,9 @@ class OrderServiceApplicationTests {
                     "quantity": 5
                 }
                 """;
+
+        InventoryClientStup.callForPositive("samsung_tv", 5);
+
         RestAssured
                 .given()
                 .contentType("application/json")
