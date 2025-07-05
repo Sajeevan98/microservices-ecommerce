@@ -4,7 +4,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 
 public class InventoryClientStup {
 
-    public static void callForPositive(String code, Integer quantity) {
+    public static void call1(String code, Integer quantity) {
         stubFor(
                 get(urlEqualTo("/api/v1.0/inventory?code=" + code + "&quantity=" + quantity))
                         .willReturn(aResponse()

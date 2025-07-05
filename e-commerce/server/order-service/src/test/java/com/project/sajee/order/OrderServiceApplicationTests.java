@@ -37,7 +37,7 @@ class OrderServiceApplicationTests {
                 }
                 """;
 
-        InventoryClientStup.callForPositive("samsung_tv", 5);
+        InventoryClientStup.call1("samsung_tv", 5);
 
         RestAssured
                 .given()
