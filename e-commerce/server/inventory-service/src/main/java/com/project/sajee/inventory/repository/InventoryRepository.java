@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface InventoryRepository extends JpaRepository<Inventory, Long> {
 
-    boolean existsByCodeAndQuantityIsGreaterThanEquals(String code, Integer quantity);
+    boolean existsByCodeAndQuantityIsGreaterThanEqual(String code, Integer quantity);
 }
