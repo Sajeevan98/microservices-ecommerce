@@ -12,3 +12,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+
+  inventory:
+    client:
+      url: http://localhost:8062
