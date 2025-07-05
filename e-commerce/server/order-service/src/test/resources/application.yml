@@ -1,0 +1,5 @@
+spring:
+  inventory:
+    client:
+      url: http://localhost:${wiremock.server.port}
+
