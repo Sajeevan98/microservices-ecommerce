@@ -24,3 +24,9 @@ spring:
               uri: http://localhost:8062
               predicates:
                 - Path=/api/v1.0/inventory/**
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:9092/realms/ecommerce-microservices-security-realm
