@@ -13,3 +13,12 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  #http://localhost:8062/swagger-ui.html
+
+  api-docs:
+    path: /api-docs
+#  http://localhost:8062/api-docs
