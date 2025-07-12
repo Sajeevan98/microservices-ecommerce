@@ -25,8 +25,46 @@ spring:
               predicates:
                 - Path=/api/v1.0/inventory/**
 
+#           swagger route for product-service
+            - id: product-swagger-docs
+              uri: http://localhost:8060
+              predicates:
+                - Path=/aggregate/product-service/**
+              filters:
+                - RewritePath=/aggregate/product-service/(?<segment>.*), /$\{segment}
+
+#           swagger route for order-service
+            - id: order-swagger-docs
+              uri: http://localhost:8061
+              predicates:
+                - Path=/aggregate/order-service/**
+              filters:
+                - RewritePath=/aggregate/order-service/(?<segment>.*), /$\{segment}
+
+#           swagger route for inventory-service
+            - id: inventory-swagger-docs
+              uri: http://localhost:8062
+              predicates:
+                - Path=/aggregate/inventory-service/**
+              filters:
+                - RewritePath=/aggregate/inventory-service/(?<segment>.*), /$\{segment}
+
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:9092/realms/ecommerce-microservices-security-realm
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    urls:
+      - name: Product-Service
+        url: /aggregate/product-service/api-docs
+      - name: Order-Service
+        url: /aggregate/order-service/api-docs
+      - name: Inventory-Service
+        url: /aggregate/inventory-service/api-docs
+
+  api-docs:
+    path: /api-docs
