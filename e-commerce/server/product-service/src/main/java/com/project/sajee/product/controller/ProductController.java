@@ -25,6 +25,11 @@ public class ProductController {
     @GetMapping("/all")
     @ResponseStatus(HttpStatus.FOUND)
     public List<ProductResponse> findAllProducts(){
+        try {
+            Thread.sleep(5000); //set 5 sec, because timeoutDuration is 6 sec
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return productService.getAllProducts();
     }
 }
